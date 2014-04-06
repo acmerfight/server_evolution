@@ -23,9 +23,7 @@ requests = {}
 responses = {}
 
 while True:
-    events = epoll_fd.poll()
-    #import ipdb
-    #ipdb.set_trace()
+    events = epoll_fd.poll(1)
     for fileno, event in events:
         if fileno == server.fileno():
             conn, addr = server.accept()
